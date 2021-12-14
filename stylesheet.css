@@ -1,0 +1,89 @@
+/* Add padding to containers */
+#super_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    flex-wrap: nowrap;
+}
+.container {
+    padding: 16px;
+    border: 1px solid black;
+    width: 80%;
+    box-shadow: 5px 5px 12px rgb(104, 197, 28);
+    }
+    
+    /* Full-width input fields */
+    input[type=email]{
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    outline: none;
+    }
+    
+    /* Overwrite default styles of hr */
+    hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    }
+    
+    /* Set a style for the submit/register button */
+    .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    }
+    
+    .registerbtn:hover {
+    opacity:1;
+    }
+    
+    #error_msg {
+      visibility: hidden; /* Hidden by default. Visible on click */
+      min-width: 250px; /* Set a default minimum width */ /* Divide value of min-width by 2 */
+      background-color: #333; /* Black background color */
+      text-align: center;
+      color: #fff; /* White text color */
+      border-radius: 2px; /* Rounded borders */
+      padding: 16px; /* Padding */
+      z-index: 1; /* Add a z-index if needed */
+      bottom: 30px; /* 30px from the bottom */
+    }
+    
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #error_msg.show {
+      visibility: visible; /* Show the snackbar */
+      /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+      However, delay the fade out process for 2.5 seconds */
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 4.5s;
+    }
+    
+    /* Animations to fade the snackbar in and out */
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+    
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
