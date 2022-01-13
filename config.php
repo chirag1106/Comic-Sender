@@ -8,15 +8,15 @@ $mail = new PHPMailer(true);
 $mail->isHTML(true);
 $mail->SMTPDebug = -1;									
 $mail->isSMTP();											
-$mail->Host	 = 'mail.comicsender.me';					
+$mail->Host	 = 'smtp.gmail.com';					
 $mail->SMTPAuth = true;							
-$mail->Username = 'admin@comicsender.me'; // from email			
-$mail->Password = 'comic@admin123'; // email password						
+$mail->Username = ''; // from email			
+$mail->Password = ''; // email password						
 $mail->SMTPSecure = 'ssl';							
 $mail->Port	 = 465; 
-$mail->setFrom('admin@comicsender.me', 'Comic Sender');
+$mail->setFrom('', ''); // your email, name
 
-$conn = new mysqli("comicsender.me","comicsen_admin", "comic@admin123", "comicsen_comic_sender");
+$conn = new mysqli("","", "", "");
 if ($conn->connect_errno) {
     echo "Error: " . $conn->connect_error;
 }
