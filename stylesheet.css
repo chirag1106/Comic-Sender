@@ -1,4 +1,8 @@
 /* Add padding to containers */
+*{
+    box-sizing: border-box;
+    //background-color:;
+}
 #super_container{
     display: flex;
     justify-content: center;
@@ -10,7 +14,9 @@
     padding: 16px;
     border: 1px solid black;
     width: 80%;
-    box-shadow: 5px 5px 12px rgb(104, 197, 28);
+    box-shadow: 3px 3px 14px 0px rgba(121,66,189,0.72);
+    -webkit-box-shadow: 3px 3px 14px 0px rgba(121,66,189,0.72);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(121,66,189,0.72);
     }
     
     /* Full-width input fields */

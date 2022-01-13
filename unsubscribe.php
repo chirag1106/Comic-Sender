@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/config.php';
 require __DIR__.'/helperfuncs.php';
-// $link = getLink();
+$url = Url();
 
 // flag will be true if subscribe as successful else it wil false.
 $flag=true; 
@@ -68,13 +68,13 @@ if (isset($_POST['email']) and $_POST['token'])
             padding:0px;
         }
         #form_content{
-            border: 1px solid black;
+             border: 1px solid black;
             position: relative;
-            width: 800px;
+            width: 80%;
             margin: auto;
             box-shadow: 5px 5px 5px black;
             text-align: center;
-            height: 200px;
+            min-height: 200px;
             top: 50px;
         }
     </style>
@@ -91,7 +91,7 @@ if (isset($_POST['email']) and $_POST['token'])
         <h3>Are you sure, you want to unsubscribe?</h3>
         <input type="submit" name="submit" value="Unsubscribe">
         <br><hr>
-        <a href="http://localhost/chirag/rtcamp_assignment/index.php">« Return to our website</a>
+        <a href="<?php echo $url; ?>/index.php">« Return to our website</a>
     </form>
     </div>
     <?php 
@@ -104,7 +104,7 @@ if (isset($_POST['email']) and $_POST['token'])
         <!-- <input type="hidden" name="email" value="<?php echo $_GET["email"]; ?>"> -->
         <h3>Some error occured! Please try again</h3>
         <hr>
-        <a href="http://localhost/chirag/rtcamp_assignment/index.php">« Return to our website</a>
+        <a href="<?php echo $url; ?>/index.php">« Return to our website</a>
     </form>
     </div>
     <?php     

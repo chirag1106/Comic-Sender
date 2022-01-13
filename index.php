@@ -3,16 +3,13 @@
 require_once __DIR__.'/config.php';
 require_once __DIR__.'/helperfuncs.php';
 
-if(isset($_POST['register']))
+if(isset($_POST['register']) && !empty($_POST['email']))
 {
     $message='';
     $email = $_POST['email'];
-    $link = getLink();
+    $url = Url();
 
-    // removing illegal characters from email
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-    // validating email
     if(!filter_var($email, FILTER_VALIDATE_EMAIL) === false)
     {
         $sql = "select * from users where email = '$email'";
@@ -31,7 +28,6 @@ if(isset($_POST['register']))
                 $sql = "UPDATE users set token = ? WHERE email = ? ";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("ss", $token, $email);
-                // $stmt->store_result();
                 $stmt->execute();
                 
                 $mail->Subject = "Please verify your account";
@@ -82,6 +78,18 @@ if(isset($_POST['register']))
                                     color: white;
                                     font-size:13px;
                                 }
+                                table tr td #link{ 
+                                    background-color:orange;
+                                    margin: 5px;
+                                    padding: 5px;
+                                    border-radius: 10px;
+                                    color: white;
+                                    text-decoration: none;
+                                    font-size:15px;
+                                }
+                                table tr td #link:hover{
+                                    color: blue;
+                                }
                                 </style>
                             </head>
                             <body>
@@ -93,17 +101,17 @@ if(isset($_POST['register']))
                               <td><h3>Verify Your Email ID:</h3></td>
                             </tr>
                             <tr>
-                              <td>For verifying click on: <a href="http://localhost/chirag/rtcamp_assignment/emailverify.php?email='.$email.'&token='.$token.'" target="_blank">verify email</a></td>
+                              <td>For verifying click on: <a href="'.$url.'/emailverify.php?email='.$email.'&token='.$token.'" target="_blank" id="link">verify email</a></td>
                             </tr>
                             <br>
                             <tr>
                               <td>If you received this email by mistake, simply delete it. Your will not be subscribed if you do not click the confirmation link above.</td>
                             </tr>
                             <tr>
-                              <td id="footer"><p align="center">Copyright © 2021 By  <a href="#" style="text-decoration:none;color:#20c;a:hover{
+                              <td id="footer"><p align="center">Copyright © 2021 By  <a href="https://www.comicsender.me" style="text-decoration:none;color:#20c;a:hover{
                                 color: #45e;
                                 text-decoration: underline;
-                            } ">www.comicreader.live</a></p></td>
+                            } ">www.comicsender.me</a></p></td>
                             </tr>
                             </table>
                             <br><br>
@@ -172,6 +180,18 @@ if(isset($_POST['register']))
                                     padding-bottom: 5px;
                                     font-family: emoji;
                                 }
+                                table tr td #link{ 
+                                    background-color:orange;
+                                    margin: 5px;
+                                    padding: 5px;
+                                    border-radius: 10px;
+                                    color: white;
+                                    text-decoration: none;
+                                    font-size:15px;
+                                }
+                                table tr td #link:hover{
+                                    color: blue;
+                                }
                                 </style>
                             </head>
                             <body>
@@ -183,17 +203,17 @@ if(isset($_POST['register']))
                               <td><h3>Verify Your Email ID:</h3></td>
                             </tr>
                             <tr>
-                              <td>For verifying click on: <a href="http://localhost/chirag/rtcamp_assignment/emailverify.php?email='.$email.'&token='.$token.'" target="_blank">verify email</a></td>
+                              <td>For verifying click on: <a href="<a href="'.$url.'/emailverify.php?email='.$email.'&token='.$token.'" target="_blank" id="link">verify email</a></td>
                             </tr>
                             <br>
                             <tr>
                               <td>If you received this email by mistake, simply delete it. Your will not be subscribed if you do not click the confirmation link above.</td>
                             </tr>
                             <tr>
-                            <td id="footer"><p align="center">Copyright © 2021 By  <a href="#" style="text-decoration:none;color:#20c;a:hover{
+                            <td id="footer"><p align="center">Copyright © 2021 By  <a href="https://www.comicsender.me" style="text-decoration:none;color:#20c;a:hover{
                                 color: #45e;
                                 text-decoration: underline;
-                            } ">www.comicreader.live</a></p></td>
+                            } ">www.comicsender.me</a></p></td>
                             </tr>
                             </table>
                             <br><br>
@@ -215,8 +235,7 @@ if(isset($_POST['register']))
             else{
                 $message='SQL Error!';
             }
-        }
-        
+        }  
     }
     else
     {
@@ -241,7 +260,7 @@ if(isset($_POST['register']))
 <body onload="message()">
     <div id="super_container">
     <div class="container">
-    <form method="POST" action=" <?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> ">
+    <form method="POST">
         <h1>Register</h1>
         <p>Registration for getting different comics every 5 minutes.</p>
         <hr>

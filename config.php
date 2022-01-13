@@ -6,17 +6,17 @@ use PHPMailer\PHPMailer\SMTP;
 
 $mail = new PHPMailer(true);
 $mail->isHTML(true);
-$mail->SMTPDebug = 0;									
+$mail->SMTPDebug = -1;									
 $mail->isSMTP();											
-$mail->Host	 = 'smtp.gmail.com;';					
+$mail->Host	 = 'mail.comicsender.me';					
 $mail->SMTPAuth = true;							
-$mail->Username = 'chirag.webdeveloper123@gmail.com'; // from email			
-$mail->Password = 'chirag@123'; // email password						
-$mail->SMTPSecure = 'tls';							
-$mail->Port	 = 587;
-$mail->setFrom('chirag.webdevloper123@gmail.com', 'Chirag Gupta');
+$mail->Username = 'admin@comicsender.me'; // from email			
+$mail->Password = 'comic@admin123'; // email password						
+$mail->SMTPSecure = 'ssl';							
+$mail->Port	 = 465; 
+$mail->setFrom('admin@comicsender.me', 'Comic Sender');
 
-$conn = new mysqli("localhost", "root", "", "comic_reader");
+$conn = new mysqli("comicsender.me","comicsen_admin", "comic@admin123", "comicsen_comic_sender");
 if ($conn->connect_errno) {
     echo "Error: " . $conn->connect_error;
 }

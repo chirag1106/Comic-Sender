@@ -13,7 +13,7 @@
         #form_content{
             border: 1px solid black;
             position: relative;
-            width: 800px;
+            width: 80%;
             margin: auto;
             box-shadow: 5px 5px 5px black;
             text-align: center;
@@ -24,22 +24,19 @@
 </head>
 <body>
     <div id="form_content">
-    <?php
-    require __DIR__.'/helperfuncs.php';
-    // $link = getLink();
+    <?php 
+        require __DIR__.'/helperfuncs.php'; 
+        $url = Url(); 
     ?>
-    <?php if($_GET['unsubalready'])
-    { ?>
-
+    <?php if(isset($_GET['unsubalready']) && $_GET['unsubalready'] == 1) { ?>
         <h1>Already unsubscribed</h1>
-    <?php } 
-    else{ ?>
+    <?php } else{ ?>
         <h1>Unsubscribed Successfully</h1>
     <?php } ?>
-    <h3>You will no longer receive any new comics from us. Although if you want to start receiving comics, register yourself on our website again!</h3>
-    <h4>Want to subscribe again! </h4>
+    <h3>You will no longer receive any new comics from us.</h3>
+    <h4> Although if you want to start receiving comics, register yourself on our website again! </h4>
     <br><hr>
-    <a href="http://localhost/chirag/rtcamp_assignment/index.php">« Return to our website</a>
+    <a href="<?php echo $url; ?>/index.php">« Return to our website</a>
     </div>
 </body>
 </html>
