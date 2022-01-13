@@ -1,7 +1,7 @@
-# rtlearn PHP ASSIGNMENT(PROBLEM STATEMENT 1)
+
 # Website(https://www.comicsender.me)
 
-## Solution for Email a random XKCD challenge
+
 
 ### For random comic fetching, I have written a function that takes the [random_number_here] as an input argument then to url[https://xkcd.com/'.[random_number_here].'/info.0.json] a get request is made in which JSON format of that comic is returned and using this JSON data, that particular comic is then sent to all the users which are subscribed.
 
